@@ -66,12 +66,18 @@ Once deployed the Virtual Machine overview should look something like this <br/>
 - This will have the logs from our VM. We can navigate to Windows Logs> Security.
 - Here we'll see all of the Audit Success and Audit Failures that are occurring.
 - If you failed your sign in attempt when logging through the RDC then you'll see the failed attempts here
+  ![jLDUOUo](https://github.com/user-attachments/assets/8f3942dd-77cf-4e9f-b224-c2d9269b9769)
+
 
 <h2> Disable Windows Defender Firewall</h2>
 
 - Now we can simply search for Windows Defender Firewall with Adanced Security
 - This will let us remove our firewall protection from the private and public profile of our VM.
+  ![image](https://github.com/user-attachments/assets/d1ea0bb0-9200-44f9-8b95-6532c5e4ae78)
+
 - Once removed we can confirm the VM is receiving traffic by pinging it with our host machine using the command-line prompt
+  ![image](https://github.com/user-attachments/assets/2b3483c7-f423-41e0-a4ea-ccff77b440e3)
+
   ![tqJkrV3](https://github.com/user-attachments/assets/6e5c3016-b205-4a4f-ba3d-6927b03b26cd)
 
 <h2> Windows Powershell ISE</h2>
@@ -83,8 +89,11 @@ Once deployed the Virtual Machine overview should look something like this <br/>
  ![1699153384903](https://github.com/user-attachments/assets/5bf3a197-62c7-4fc0-b1b0-1d9135b45d0c)
   - Now we need to get our API key needed for the geo locator. We can get this key for free by signing up at https://ipgeolocation.io/
   - Once you have your key you can paste it on line 2 within the apostrophes.
+  ![image](https://github.com/user-attachments/assets/f7792ae2-10b6-406b-ac8e-e21fc89fa7f6)
+
   - Now you can press the green triangle at the top to run the script or F5. <ins> I missed this step and was here for a couple of minutes until I researched further to see what I had missed </ins>
   - This script will now grab all the events of people who failed to login via RDP. It grabs their IP address and creates the geographical data. The log will be saved in C:\ProgramData\failed_rdp.log You can also just search on your file explorer under C drive as failed_rdp.log and it will appear.
+
 
 <h2> Create our Custom Log</h2>
 
