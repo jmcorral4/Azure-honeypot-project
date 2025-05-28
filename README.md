@@ -37,6 +37,8 @@ Once deployed the Virtual Machine overview should look something like this <br/>
 
 - Search Log Analytics Workspace on the bar and choose *Create log analytics workspace*
 - Under resource group we choose the group we created earlier
+![1699152226839](https://github.com/user-attachments/assets/d4709fb7-6da3-46af-ae6e-d1db146efa4b)
+
 - Make sure the region is set to the same one, in my case it was West US 3. Name it something simple. I went with law-honeynet.
 - Review and create once it passes validation
 
@@ -44,13 +46,20 @@ Once deployed the Virtual Machine overview should look something like this <br/>
 
 - Search for Microsoft Defender for Cloud
 - On the left tab we click on environment settings and select the LAW we just created
--  We turn on the servers under defender plan and all events under data collection. Hit save right after.
--  Now we head back to our LAW and connect it to our VM
+- We turn on the servers under defender plan
+  ![image](https://github.com/user-attachments/assets/4596303a-cf02-4f7b-a38f-1d7e523cfdb6)
+
+- Also all events under data collection. Hit save right after.
+![image](https://github.com/user-attachments/assets/f5a739bf-2619-4014-8741-f2acf268d523)
+
+- Now we head back to our LAW and connect it to our VM
 
 <h2> Adding Microsoft Sentinel </h2>
 
 - Search for Microsoft Sentinel
 - Add Microsoft sentinel to our workspace which should be law-honeynet
+  ![1699152700476](https://github.com/user-attachments/assets/b7f31f82-532b-4fe3-8488-112134478230)
+
 
 <h2> Remote Connect</h2>
 
@@ -99,7 +108,7 @@ Once deployed the Virtual Machine overview should look something like this <br/>
 
  - Now we can go to our Log analytics worksapce and choose our LAW we created.
  - Once you choose law-honeynet we can choose tables on the left. We now create a new custom log (mma based)
- - ![1699153684296](https://github.com/user-attachments/assets/9117eb8d-885a-4cc5-a2d1-8a06bb4e0ac5)
+  ![1699153684296](https://github.com/user-attachments/assets/9117eb8d-885a-4cc5-a2d1-8a06bb4e0ac5)
  - The file needed will be the failed_rdp.log from our VM. We simply copy it and put it on our host computer to upload it to our custom log.
  - Default settings for the record limiter screen
  - The Type for the collection path will be Windows. The path if you left the PowerShell script alone will be saved under C:\programdata\failed_rdp.log
@@ -112,8 +121,8 @@ Once deployed the Virtual Machine overview should look something like this <br/>
  - Next we're going to click edit on the top left and remove the current widgets.
     ![1699154282939](https://github.com/user-attachments/assets/8299338f-cad3-46cf-a1af-be65a75afafb)
  - Click on "add" and choose "add query"
- - Here we're going to add this script.
-    ![swaUmt3](https://github.com/user-attachments/assets/491d1da5-b92a-44bd-8fb4-33f831da733b)
+ - Here we're going to add this script. </br>
+   ![swaUmt3](https://github.com/user-attachments/assets/491d1da5-b92a-44bd-8fb4-33f831da733b)
  - Once pasted we're going to hit "run query"
  - Under visualization we're going to select map
     ![1699154387293](https://github.com/user-attachments/assets/93e86305-3c63-47f5-83e9-4ae2659c3350)
