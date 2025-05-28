@@ -1,6 +1,5 @@
 # Azure-honeypot-project
 Built a Windows-based honeypot VM on Azure with logging and analysis through Sentinel and PowerShell scripting. Used IPGeo API to map attacker locations. Focused on RDP attack patterns and incident analysis.
-azure-honeypot-project/
 
 <h2> Tools Used<h/2>
 
@@ -75,42 +74,42 @@ Once deployed the Virtual Machine overview should look something like this <br/>
 - Once removed we can confirm the VM is receiving traffic by pinging it with our host machine using the command-line prompt
   ![tqJkrV3](https://github.com/user-attachments/assets/6e5c3016-b205-4a4f-ba3d-6927b03b26cd)
 
-  <h2> Windows Powershell ISE</h2>
+<h2> Windows Powershell ISE</h2>
 
-  - I used a custom PowerShell script that enables us to map inbound RDP geo data to a map on Sentinel
-  - Grab the script from this page. https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1
-  - You can download, copy, or save to desktop.
-  - Under our VM we'll search for PowerShell ISE. Once you open the application we can then open the script we just downloaded.
-  ![1699153384903](https://github.com/user-attachments/assets/5bf3a197-62c7-4fc0-b1b0-1d9135b45d0c)
+ - I used a custom PowerShell script that enables us to map inbound RDP geo data to a map on Sentinel
+ - Grab the script from this page. https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1
+ - You can download, copy, or save to desktop.
+ - Under our VM we'll search for PowerShell ISE. Once you open the application we can then open the script we just downloaded.
+ ![1699153384903](https://github.com/user-attachments/assets/5bf3a197-62c7-4fc0-b1b0-1d9135b45d0c)
   - Now we need to get our API key needed for the geo locator. We can get this key for free by signing up at https://ipgeolocation.io/
   - Once you have your key you can paste it on line 2 within the apostrophes.
   - Now you can press the green triangle at the top to run the script or F5. <ins> I missed this step and was here for a couple of minutes until I researched further to see what I had missed </ins>
   - This script will now grab all the events of people who failed to login via RDP. It grabs their IP address and creates the geographical data. The log will be saved in C:\ProgramData\failed_rdp.log You can also just search on your file explorer under C drive as failed_rdp.log and it will appear.
 
-  <h2> Create our Custom Log</h2>
+<h2> Create our Custom Log</h2>
 
-- Now we can go to our Log analytics worksapce and choose our LAW we created.
-- Once you choose law-honeynet we can choose tables on the left. We now create a new custom log (mma based)
-- ![1699153684296](https://github.com/user-attachments/assets/9117eb8d-885a-4cc5-a2d1-8a06bb4e0ac5)
-- The file needed will be the failed_rdp.log from our VM. We simply copy it and put it on our host computer to upload it to our custom log.
-- Default settings for the record limiter screen
-- The Type for the collection path will be Windows. The path if you left the PowerShell script alone will be saved under C:\programdata\failed_rdp.log
-- Create custome log name, FAILED_RDP_WITH_GEO
-- Now we hit next and then create
+ - Now we can go to our Log analytics worksapce and choose our LAW we created.
+ - Once you choose law-honeynet we can choose tables on the left. We now create a new custom log (mma based)
+ - ![1699153684296](https://github.com/user-attachments/assets/9117eb8d-885a-4cc5-a2d1-8a06bb4e0ac5)
+ - The file needed will be the failed_rdp.log from our VM. We simply copy it and put it on our host computer to upload it to our custom log.
+ - Default settings for the record limiter screen
+ - The Type for the collection path will be Windows. The path if you left the PowerShell script alone will be saved under C:\programdata\failed_rdp.log
+ - Create custome log name, FAILED_RDP_WITH_GEO
+ - Now we hit next and then create
 
-  <h2> Creating our map in Sentinel </h2>
+<h2> Creating our map in Sentinel </h2>
 
-  - On Azure we navigate to Microsoft Sentinel and choose Workbooks. Click on "add Workbook"
-  - Next we're going to click edit on the top left and remove the current widgets.
+ - On Azure we navigate to Microsoft Sentinel and choose Workbooks. Click on "add Workbook"
+ - Next we're going to click edit on the top left and remove the current widgets.
     ![1699154282939](https://github.com/user-attachments/assets/8299338f-cad3-46cf-a1af-be65a75afafb)
-  - Click on "add" and choose "add query"
-  - Here we're going to add this script.
+ - Click on "add" and choose "add query"
+ - Here we're going to add this script.
     ![swaUmt3](https://github.com/user-attachments/assets/491d1da5-b92a-44bd-8fb4-33f831da733b)
-  - Once pasted we're going to hit "run query"
-  - Under visualization we're going to select map
+ - Once pasted we're going to hit "run query"
+ - Under visualization we're going to select map
     ![1699154387293](https://github.com/user-attachments/assets/93e86305-3c63-47f5-83e9-4ae2659c3350)
-  - Once the log populates in Azure it should output data.
-  - Mine does not show the countries from where it's getting attacked but I did see them in the PowerShell script from the VM. I had 20 attacks from Germany, 8 from Indonesia, and 1 from California.
+ - Once the log populates in Azure it should output data.
+ - Mine does not show the countries from where it's getting attacked but I did see them in the PowerShell script from the VM. I had 20 attacks from Germany, 8 from Indonesia, and 1 from California.
 ![BXPMWCI](https://github.com/user-attachments/assets/02f57df0-c5b3-4002-9892-558a2f6e541f)
 
 
