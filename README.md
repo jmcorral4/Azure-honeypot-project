@@ -100,7 +100,7 @@ Once deployed the Virtual Machine overview should look something like this <br/>
   - Once you have your key you can paste it on line 2 within the apostrophes.
   ![image](https://github.com/user-attachments/assets/f7792ae2-10b6-406b-ac8e-e21fc89fa7f6)
 
-  - Now you can press the green triangle at the top to run the script or F5. <ins> I missed this step and was here for a couple of minutes until I researched further to see what I had missed </ins>
+  - Now you can press the green triangle at the top to run the script or F5. <ins> I missed this step and was here for a couple of minutes until I researched further to see what happened. </ins>
   - This script will now grab all the events of people who failed to login via RDP. It grabs their IP address and creates the geographical data. The log will be saved in C:\ProgramData\failed_rdp.log You can also just search on your file explorer under C drive as failed_rdp.log and it will appear.
 
 
