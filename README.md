@@ -130,8 +130,10 @@ Once deployed the Virtual Machine overview should look something like this <br/>
  - Mine does not show the countries from where it's getting attacked but I did see them in the PowerShell script from the VM. I had 20 attacks from Germany, 8 from Indonesia, and 1 from California.
 ![BXPMWCI](https://github.com/user-attachments/assets/02f57df0-c5b3-4002-9892-558a2f6e541f)
 - Edit: I went back to see why it wasn't being attacked as much and I believe my logs were messing something up. I basically checked to see that everything was working and that the VM was running. Everything looked fine but noticed that my data connectors weren't connected. Once I connected Microsoft Defender for Cloud I started receiving more data. This is the result after two hours of playing with the program.
-  ![image](https://github.com/user-attachments/assets/af409341-577b-46dc-b3fa-fcbcdeee545d)
-  ![image](https://github.com/user-attachments/assets/4e609eab-4890-455e-a3c2-f37ab82acff1)
+
+   ![image](https://github.com/user-attachments/assets/af409341-577b-46dc-b3fa-fcbcdeee545d)
+  
+   ![image](https://github.com/user-attachments/assets/4e609eab-4890-455e-a3c2-f37ab82acff1)
 
 
 
