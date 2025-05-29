@@ -12,7 +12,7 @@ Built a Windows-based honeypot VM on Azure with logging and analysis through Sen
 
 <h2> Create a Resource Group</h2>
 
-- Got to Azure Portal -> Resource Groups -> *Create a New one*
+- Go to Azure Portal -> Resource Groups -> *Create a New one*
 - This helps organize all the resources related to the honeypot
 
 <h2> Deploy Virtual Machine</h2>
